@@ -30,11 +30,21 @@ public class Vetor {
         }
         return false;
     }
-    public String buscar(int posicao){
-        if(!(posicao < index && posicao >= 0)){
+
+    public String buscar(int posicao) {
+        if (!(posicao < index && posicao >= 0)) {
             throw new IllegalArgumentException("Posicao Invalida");
         }
         return this.elementos[posicao];
+    }
+
+    public int buscar(String elemento) {
+        for (int i = 0; i < this.index; i++) {
+            if (this.elementos[i].equalsIgnoreCase(elemento)) {
+                return i;
+            }
+        }
+            return -1;
     }
 
     public String[] getElementos() {
