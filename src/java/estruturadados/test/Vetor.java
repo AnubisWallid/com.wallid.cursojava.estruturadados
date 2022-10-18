@@ -5,7 +5,7 @@ package estruturadados.test;
 import java.util.Arrays;
 
 public class Vetor {
-    private final String[] elementos;
+    private String[] elementos;
     private int index = 0;
 
     public Vetor(int capacidade) {
@@ -28,6 +28,7 @@ public class Vetor {
         }
     }
     public boolean adicionar(String elemento) {
+        this.aumentaCapacidade();
         if (index < this.elementos.length) {
             this.elementos[index] = elemento;
             index++;
@@ -38,6 +39,8 @@ public class Vetor {
 
     public boolean adicionar(int posicao, String elemento) {
         this.verificaPosicao(posicao);
+        this.aumentaCapacidade();
+
         for (int i = index-1; i >= posicao; i--) {
                 this.elementos[i + 1] = this.elementos[i];
         }
@@ -45,6 +48,18 @@ public class Vetor {
         this.index ++;
 
         return true;
+    }
+    private void aumentaCapacidade(){
+        if (this.index == this.elementos.length){
+            String[] elementosNovos = new String[this.elementos.length * 2];
+            /*
+            for (int i = 0; i < this.elementos.length; i++) {
+                elementosNovos[i] = this.elementos[i];
+            }
+            */
+            System.arraycopy(this.elementos, 0, elementosNovos, 0, this.elementos.length);
+            this.elementos = elementosNovos;
+        }
     }
 
     public String buscar(int posicao) {
