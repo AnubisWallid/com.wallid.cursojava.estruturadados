@@ -2,13 +2,14 @@
 
 package estruturadados.test;
 
+import java.util.Arrays;
+
 public class Vetor {
     private final String[] elementos;
-    private static int index = 0;
+    private int index = 0;
 
     public Vetor(int capacidade) {
         this.elementos = new String[capacidade];
-        index = capacidade;
     }
 
     /*
@@ -24,7 +25,7 @@ public class Vetor {
     public boolean adicionar(String elemento) {
         if (index < this.elementos.length) {
             this.elementos[index] = elemento;
-            ++index;
+            index++;
             return true;
         }
         return false;
@@ -32,5 +33,23 @@ public class Vetor {
 
     public String[] getElementos() {
         return this.elementos;
+    }
+
+    public int getIndex() {
+        return this.index;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append("[ ");
+        for (String elemento : this.elementos) {
+            if (elemento != null) {
+                s.append(elemento).append(", ");
+            }
+        }
+        s.delete(s.length() - 2, s.length());
+        s.append(" ]");
+        return s.toString();
     }
 }
