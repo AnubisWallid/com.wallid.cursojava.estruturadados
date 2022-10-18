@@ -22,6 +22,11 @@ public class Vetor {
         }
     }
     */
+    private void verificaPosicao(int posicao){
+        if (!(posicao < index && posicao >= 0)) {
+            throw new IllegalArgumentException("Posicao Invalida");
+        }
+    }
     public boolean adicionar(String elemento) {
         if (index < this.elementos.length) {
             this.elementos[index] = elemento;
@@ -31,10 +36,19 @@ public class Vetor {
         return false;
     }
 
-    public String buscar(int posicao) {
-        if (!(posicao < index && posicao >= 0)) {
-            throw new IllegalArgumentException("Posicao Invalida");
+    public boolean adicionar(int posicao, String elemento) {
+        this.verificaPosicao(posicao);
+        for (int i = index-1; i >= posicao; i--) {
+                this.elementos[i + 1] = this.elementos[i];
         }
+        this.elementos[posicao] = elemento;
+        this.index ++;
+
+        return true;
+    }
+
+    public String buscar(int posicao) {
+        this.verificaPosicao(posicao);
         return this.elementos[posicao];
     }
 
@@ -44,7 +58,7 @@ public class Vetor {
                 return i;
             }
         }
-            return -1;
+        return -1;
     }
 
     public String[] getElementos() {
