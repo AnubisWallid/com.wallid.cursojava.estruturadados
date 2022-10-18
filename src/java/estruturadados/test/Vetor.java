@@ -22,11 +22,12 @@ public class Vetor {
         }
     }
     */
-    private void verificaPosicao(int posicao){
+    private void verificaPosicao(int posicao) {
         if (!(posicao < index && posicao >= 0)) {
             throw new IllegalArgumentException("Posicao Invalida");
         }
     }
+
     public boolean adicionar(String elemento) {
         this.aumentaCapacidade();
         if (index < this.elementos.length) {
@@ -41,16 +42,34 @@ public class Vetor {
         this.verificaPosicao(posicao);
         this.aumentaCapacidade();
 
-        for (int i = index-1; i >= posicao; i--) {
-                this.elementos[i + 1] = this.elementos[i];
+        for (int i = index - 1; i >= posicao; i--) {
+            this.elementos[i + 1] = this.elementos[i];
         }
         this.elementos[posicao] = elemento;
-        this.index ++;
+        this.index++;
 
         return true;
     }
-    private void aumentaCapacidade(){
-        if (this.index == this.elementos.length){
+
+    public void remover(int posicao) {
+        verificaPosicao(posicao);
+        for (int i = posicao; i < this.index - 1; i++) {
+            this.elementos[i] = this.elementos[i + 1];
+        }
+        this.index--;
+    }
+    public void remover(String elemento) {
+        int posicao = this.buscar(elemento);
+        if(posicao > -1){
+            for (int i = posicao; i < this.index - 1; i++) {
+                this.elementos[i] = this.elementos[i + 1];
+            }
+            this.index--;
+        }
+    }
+
+    private void aumentaCapacidade() {
+        if (this.index == this.elementos.length) {
             String[] elementosNovos = new String[this.elementos.length * 2];
             /*
             for (int i = 0; i < this.elementos.length; i++) {
@@ -87,14 +106,15 @@ public class Vetor {
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append("[ ");
-        for (String elemento : this.elementos) {
-            if (elemento != null) {
-                s.append(elemento).append(", ");
-            }
+        s.append("[");
+        for (int i = 0; i < this.index - 1; i++) {
+            s.append(this.elementos[i]);
+            s.append(", ");
         }
-        s.delete(s.length() - 2, s.length());
-        s.append(" ]");
+        if (this.index > 0) {
+            s.append(this.elementos[(this.index-1)]); // Apenas para não colocar a virgula no ultimo elemento
+        }
+        s.append("]");
         return s.toString();
     }
 }
