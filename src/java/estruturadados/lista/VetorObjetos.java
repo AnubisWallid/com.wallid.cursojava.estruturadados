@@ -1,6 +1,6 @@
 
 
-package estruturadados.test;
+package estruturadados.lista;
 
 public class VetorObjetos {
     private Object[] elementos;

@@ -1,8 +1,10 @@
-package estruturadados.test;
+package estruturadados.lista.test;
 
-public class Aula07 {
+import estruturadados.lista.VetorObjetos;
+
+public class Aula08 {
     public static void main(String[] args) {
-        Vetor vetor = new Vetor(1);
+        VetorObjetos vetor = new VetorObjetos(1);
 
         System.out.println(vetor.getIndex());
         vetor.adicionar("B");

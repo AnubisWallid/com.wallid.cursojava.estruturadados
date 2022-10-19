@@ -1,6 +1,6 @@
 
 
-package estruturadados.test;
+package estruturadados.lista;
 
 import java.lang.reflect.Array;
 

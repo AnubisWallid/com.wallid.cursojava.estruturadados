@@ -1,9 +1,6 @@
-package estruturadados.test;
+package estruturadados.lista.test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Objects;
 
 public class Aula10 {
     public static void main(String[] args) {
@@ -21,11 +18,9 @@ public class Aula10 {
         System.out.println("Contains: " + array.contains("C"));
         System.out.println("IndexOf \"B\": " + array.indexOf("B"));
         for (String s1 : array) {
-            System.out.println("Get("+array.indexOf(s1) +"): "+s1);
+            System.out.println("Get(" + array.indexOf(s1) + "): " + s1);
         }
-        array.removeIf(s -> {
-            return Objects.equals(s, "B");
-        });
-        System.out.println("Depois do removeIf(): "+ array);
+        array.removeIf(s -> s.equalsIgnoreCase("B"));
+        System.out.println("Depois do removeIf(): " + array);
     }
 }

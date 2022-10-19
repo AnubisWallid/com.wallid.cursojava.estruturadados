@@ -1,6 +1,8 @@
 
 
-package estruturadados.test;
+package estruturadados.lista.test;
+
+import estruturadados.lista.Vetor;
 
 public class Aula01 {
     public Aula01() {

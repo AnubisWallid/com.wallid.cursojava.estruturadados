@@ -1,8 +1,6 @@
 
 
-package estruturadados.test;
-
-import java.util.Arrays;
+package estruturadados.lista;
 
 public class Vetor {
     private String[] elementos;
