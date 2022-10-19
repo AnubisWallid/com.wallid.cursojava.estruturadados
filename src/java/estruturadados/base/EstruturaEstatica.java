@@ -3,7 +3,9 @@ package estruturadados.base;
 public class EstruturaEstatica<T> {
     protected T[] elementos;
     protected int tamanho = 0;
-
+    public int getTamanho() {
+        return tamanho;
+    }
     public EstruturaEstatica(int capacidade) {
         this.elementos = (T[]) new Object[capacidade];//Livro effect java
     }
