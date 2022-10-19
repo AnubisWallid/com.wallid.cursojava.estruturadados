@@ -56,7 +56,7 @@ public class EstruturaEstatica<T> {
     }
 
 
-    private void aumentaCapacidade() {
+    protected void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
             T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
             /*for (int i = 0; i < this.elementos.length; i++) {
