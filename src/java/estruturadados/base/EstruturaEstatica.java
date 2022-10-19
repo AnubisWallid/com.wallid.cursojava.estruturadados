@@ -13,16 +13,16 @@ public class EstruturaEstatica<T> {
     }
 
     private void verificaPosicao(int posicao) {
-        if (!(posicao < tamanho && posicao >= 0)) {
+        if (!(posicao < this.tamanho && posicao >= 0)) {
             throw new IllegalArgumentException("Posicao Invalida");
         }
     }
 
     protected boolean adicionar(T elemento) {
         this.aumentaCapacidade();
-        if (tamanho < this.elementos.length) {
-            this.elementos[tamanho] = elemento;
-            tamanho++;
+        if (this.tamanho < this.elementos.length) {
+            this.elementos[this.tamanho] = elemento;
+            this.tamanho++;
             return true;
         }
         return false;
@@ -32,7 +32,7 @@ public class EstruturaEstatica<T> {
         this.verificaPosicao(posicao);
         this.aumentaCapacidade();
 
-        for (int i = tamanho - 1; i >= posicao; i--) {
+        for (int i = this.tamanho - 1; i >= posicao; i--) {
             this.elementos[i + 1] = this.elementos[i];
         }
         this.elementos[posicao] = elemento;
@@ -44,13 +44,13 @@ public class EstruturaEstatica<T> {
         return this.tamanho == 0;
     }
     protected void remove(int posicao){
-        if (!(posicao >= 0 && posicao < tamanho)){
+        if (!(posicao >= 0 && posicao < this.tamanho)){
             throw new IllegalArgumentException("Posicao inválida");
         }
         for (int i=posicao; i<tamanho-1; i++){
-            elementos[i] = elementos[i+1];
+            this.elementos[i] = this.elementos[i+1];
         }
-        tamanho--;
+        this.tamanho--;
     }
 
 
@@ -64,7 +64,6 @@ public class EstruturaEstatica<T> {
             this.elementos = elementosNovos;
         }
     }
-
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append("[");
