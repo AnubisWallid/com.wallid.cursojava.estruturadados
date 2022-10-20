@@ -15,10 +15,7 @@ public class Paciente implements Comparable<Paciente> {
 
     @Override
     public String toString() {
-        return "Paciente{" +
-                "nome='" + nome + '\'' +
-                ", prioridade=" + prioridade +
-                '}';
+        return "[Nome: " + nome +",  Prioridade: " + prioridade+"]";
     }
 
     public void setNome(String nome) {
@@ -40,7 +37,6 @@ public class Paciente implements Comparable<Paciente> {
         } else if (this.prioridade < o.getPrioridade()) {
             return -1;
         } else
-            this.nome.compareTo(o.getNome());
-        return 0;
+            return this.nome.compareTo(o.getNome());
     }
 }

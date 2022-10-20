@@ -1,21 +1,26 @@
 package estruturadados.fila.test;
 
-import estruturadados.fila.FilaPrioridade;
-import estruturadados.fila.Paciente;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class Aula16 {
     public static void main(String[] args) {
-        FilaPrioridade<Paciente> fila = new FilaPrioridade<>();
-        Paciente p1 = new Paciente("A",3);
-        Paciente p2 = new Paciente("B",1);
-        Paciente p3 = new Paciente("C",2);
-        Paciente p4 = new Paciente("D",3);
+        Queue<Integer> filaComPrioridade = new PriorityQueue<>(
+               /* new Comparator<Integer>() {
+                    @Override
+                    public int compare(Integer o1, Integer o2) {
+                       return Integer.compare(o1,o2);
+                    }
+                }*/
+        );
 
-        fila.enfileira(p1);
-        fila.enfileira(p2);
-        fila.enfileira(p3);
-        fila.enfileira(p4);
+        filaComPrioridade.add(5);
+        filaComPrioridade.add(1);
+        filaComPrioridade.add(0);
 
-        System.out.println(fila);
+        System.out.println(filaComPrioridade);
+        System.out.println(filaComPrioridade.peek());
+
     }
 }
