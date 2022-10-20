@@ -2,7 +2,7 @@ package estruturadados.base;
 
 public class EstruturaEstatica<T> {
     protected T[] elementos;
-    protected int tamanho = 0;
+    protected int tamanho;
     public int getTamanho() {
         return tamanho;
     }
@@ -15,8 +15,8 @@ public class EstruturaEstatica<T> {
     }
 
     private void verificaPosicao(int posicao) {
-        if (!(posicao < this.tamanho && posicao >= 0)) {
-            throw new IllegalArgumentException("Posicao Invalida");
+        if (posicao < 0 || posicao > tamanho){
+            throw new IllegalArgumentException("Posição inválida");
         }
     }
 
@@ -31,9 +31,10 @@ public class EstruturaEstatica<T> {
     }
 
     protected boolean adicionar(int posicao, T elemento) {
-        this.verificaPosicao(posicao);
         this.aumentaCapacidade();
-
+        if (posicao < 0 || posicao > tamanho){
+            throw new IllegalArgumentException("Posição inválida");
+        }
         for (int i = this.tamanho - 1; i >= posicao; i--) {
             this.elementos[i + 1] = this.elementos[i];
         }
