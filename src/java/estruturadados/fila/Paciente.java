@@ -1,12 +1,22 @@
 package estruturadados.fila;
 
+import java.util.Random;
+
 public class Paciente implements Comparable<Paciente> {
     private String nome;
     private int prioridade;
 
+    private void geraPrioridade(){
+        Random ale = new Random();
+        this.setPrioridade(Math.round(ale.nextFloat()));
+    }
     public Paciente(String nome, int prioridade) {
         this.nome = nome;
         this.prioridade = prioridade;
+    }
+    public Paciente(String nome){
+        this.nome = nome;
+        geraPrioridade();
     }
 
     public String getNome() {
