@@ -1,4 +1,4 @@
-package estruturadados.lista.test;
+package estruturadados.vetor.test;
 
 import java.util.ArrayList;
 

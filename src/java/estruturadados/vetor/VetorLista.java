@@ -1,13 +1,18 @@
 
 
-package estruturadados.lista;
+package estruturadados.vetor;
 
-public class VetorObjetos {
-    private Object[] elementos;
+import java.lang.reflect.Array;
+
+public class VetorLista<T> {
+    private T[] elementos;
     private int index = 0;
 
-    public VetorObjetos(int capacidade) {
-        this.elementos = new Object[capacidade];
+    public VetorLista(int capacidade) {
+        this.elementos = (T[])new Object[capacidade];//Livro effect java
+    }
+    public VetorLista(int capacidade, Class<T> tipoClasse) {
+        this.elementos = (T[]) Array.newInstance(tipoClasse,capacidade);
     }
     /*public void adicionar(Object elemento) throws Exception {
         if (index < this.elementos.length) {
@@ -23,7 +28,7 @@ public class VetorObjetos {
         }
     }
 
-    public boolean adicionar(Object elemento) {
+    public boolean adicionar(T elemento) {
         this.aumentaCapacidade();
         if (index < this.elementos.length) {
             this.elementos[index] = elemento;
@@ -33,7 +38,7 @@ public class VetorObjetos {
         return false;
     }
 
-    public boolean adicionar(int posicao, Object elemento) {
+    public boolean adicionar(int posicao, T elemento) {
         this.verificaPosicao(posicao);
         this.aumentaCapacidade();
 
@@ -53,7 +58,7 @@ public class VetorObjetos {
         }
         this.index--;
     }
-    public void remover(Object elemento) {
+    public void remover(T elemento) {
         int posicao = this.buscar(elemento);
         if(posicao > -1){
             for (int i = posicao; i < this.index - 1; i++) {
@@ -65,7 +70,7 @@ public class VetorObjetos {
 
     private void aumentaCapacidade() {
         if (this.index == this.elementos.length) {
-            Object[] elementosNovos = new Object[this.elementos.length * 2];
+            T[] elementosNovos =(T[]) new Object[this.elementos.length * 2];
             /*
             for (int i = 0; i < this.elementos.length; i++) {
                 elementosNovos[i] = this.elementos[i];
@@ -76,12 +81,12 @@ public class VetorObjetos {
         }
     }
 
-    public Object buscar(int posicao) {
+    public T buscar(int posicao) {
         this.verificaPosicao(posicao);
         return this.elementos[posicao];
     }
 
-    public int buscar(Object elemento) {
+    public int buscar(T elemento) {
         for (int i = 0; i < this.index; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
@@ -90,7 +95,7 @@ public class VetorObjetos {
         return -1;
     }
 
-    public Object[] getElementos() {
+    public T[] getElementos() {
         return this.elementos;
     }
 

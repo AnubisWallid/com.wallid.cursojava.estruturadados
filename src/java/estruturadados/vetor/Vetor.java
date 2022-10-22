@@ -1,6 +1,6 @@
 
 
-package estruturadados.lista;
+package estruturadados.vetor;
 
 public class Vetor {
     private String[] elementos;

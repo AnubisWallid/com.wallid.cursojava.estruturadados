@@ -1,6 +1,6 @@
-package estruturadados.lista.test;
+package estruturadados.vetor.test;
 
-import estruturadados.lista.VetorObjetos;
+import estruturadados.vetor.VetorObjetos;
 
 public class Aula08 {
     public static void main(String[] args) {

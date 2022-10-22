@@ -1,6 +1,6 @@
-package estruturadados.lista.test;
+package estruturadados.vetor.test;
 
-import estruturadados.lista.VetorLista;
+import estruturadados.vetor.VetorLista;
 
 public class Aula09 {
     public static void main(String[] args) {

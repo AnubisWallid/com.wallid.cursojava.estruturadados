@@ -1,4 +1,4 @@
-package estruturadados.lista;
+package estruturadados.vetor;
 
 import estruturadados.base.EstruturaEstatica;
 
